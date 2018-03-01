@@ -1,0 +1,46 @@
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+<div style="margin-top:60px; ">
+    <center>
+        <div style="width: 50%; text-align: left; padding: 20px; margin: 10px">
+            <h1 style="color: black; font-weight: bold; text-align: center"><%= @title %></h1>
+            <hr/>
+            <p>
+                <%=@content%><p style="text-align: right"><%=@senddate%>
+                <form action="/<%= @one_post.id %>/like_create" method="post" style="text-align: right">
+                    <button type="submit" class="fa fa-thumbs-o-up btn btn-danger navbar-btn">&nbsp;<%= Post.find(@one_post.id).likes.count %></button>
+                </form>
+                </p>
+            <hr/>
+            <%= form_tag comment_create_path method: 'post' do %>
+                <div class="form-group">
+                    <label for="content">댓글작성</label>
+                    <textarea class="form-control" id="content" name="content" rows="3" placeholder="content"></textarea>
+                </div>
+                <button class="btn btn-danger navbar-btn" style="padding-left: 20px; padding-right: 20px; margin-bottom: 20px; font-weight: bold; border-radius: 30px;" type="submit">댓글쓰기</button>
+            <% end %>
+        
+            <div style="text-align: left">
+                <% @one_post.comments.each do |c| %>
+                    <p><%= c.cuser_id %></p>
+                    <p><%= c.content %></p>
+                    <p  style="text-align: right">
+                        <a id = "commentup<%= c.id %>">수정</a>            
+                        <a href="/<%= @one_post.id %>/comment_destroy/<%= c.id %>">삭제</a>
+                    </p>
+                        <script>
+                                $( "#commentup<%= c.id %>" ).click(function() {
+                                  $( "#comment_update<%= c.id %>" ).slideToggle( "slow");
+                                });
+                        </script>
+                        <form action="/<%= c.post_id %>/comment_update/<%= c.id %>" method="post" id="comment_update<%= c.id %>" style="display: none">
+                            <div>
+                                <label for="content">댓글작성</label>
+                                <textarea class="form-control" id="content" name="content" rows="3" value="content"><%= c.content %></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-danger navbar-btn" style="padding-left: 20px; padding-right: 20px; margin-bottom: 20px; font-weight: bold; border-radius: 30px;" >수정하기</button>
+                        </form>
+                <% end %>              
+            </div>
+        </div>
+    </center>
+</div>

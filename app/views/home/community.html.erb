@@ -1,0 +1,31 @@
+<div style="margin-top:200px;">
+    <center>
+        <table style="margin-top: 30px; margin-bottom: 30px; border: 1px solid gray; width: 80%">
+          <tr style="background-color: gray;">
+            <th style="padding : 6px; text-align: center; width: 300px; color: white">제목</th>
+            <th style="text-align: center; color: white;">작성자</th>
+            <th style="text-align: center; color: white;">날짜</th>
+            <th style="text-align: center; color: white;">좋아요</th>
+            <th>&nbsp;</th>
+            <th>&nbsp;</th>
+          </tr>
+          <% @posts.each do |p| %>
+          <tr>
+            <td style="padding : 3px; padding-left: 20px"><%= p.title %>&nbsp;&nbsp;<a href="/show/<%=p.id%>"><i class="glyphicon glyphicon-zoom-in" style="color:#E76597;"></a></i></td>
+            <td style="text-align: center"><%= p.tname %></td>
+            <% if p.created_at.in_time_zone("Asia/Seoul").strftime("%Y-%m-%d") == Time.now.in_time_zone("Asia/Seoul").strftime("%Y-%m-%d") %>
+              <td style="text-align: center"><%= p.created_at.in_time_zone("Asia/Seoul").strftime("%H:%M:%S") %></td>
+            <% else %>
+              <td style="text-align: center"><%= p.created_at.in_time_zone("Asia/Seoul").strftime("%Y-%m-%d") %></td>
+            <% end %>
+            <td style="text-align: center"><%= p.likes.count %></td>           
+            <td><a href="/destroy/<%=p.id%>">&nbsp;삭제</a></td>
+            <td><a href="/update/<%= p.id %>">&nbsp;수정</a></td>
+          </tr>
+          <% end %>
+        </table>
+        <a href="/write"><button type="button" class="btn btn-danger navbar-btn" style="padding-left: 20px; padding-right: 20px; margin-bottom: 20px; font-weight: bold; border-radius: 30px;">글쓰기</button></a>
+    </center>
+</div>
+   
+</center>

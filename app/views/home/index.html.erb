@@ -1,0 +1,136 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>제이쿼리</title>
+<script type="text/javascript" src="http://code.jquery.com/jquery-2.1.0.min.js" ></script>
+<script type="text/javascript" src="http://bpmaker.giffy.me/userdata/user/20/20857/79/parts.js"></script>
+<script type="text/javascript">
+$(function(){
+	$('.hello').animate({
+		top:400,
+		left:50
+	},function(){
+		$('.hello').animate({
+			top:200,
+			left:50
+		},function(){
+  		$('.hello').animate({
+  			top:400,
+  			left:50
+  		});
+		});
+	});
+});
+$(setTimeout(function(){
+	$('.hello2').animate({
+		top:400,
+		left:350
+	},function(){
+		$('.hello2').animate({
+			top:200,
+			left:350
+		},function(){
+  		$('.hello2').animate({
+  			top:400,
+  			left:350
+  		});
+		});
+	});
+},500));
+$(setTimeout(function(){
+	$('.hello3').animate({
+		top:400,
+		left:650
+	},function(){
+		$('.hello3').animate({
+			top:200,
+			left:650
+		},function(){
+  		$('.hello3').animate({
+  			top:400,
+  			left:650
+  		});
+		});
+	});
+},800));
+$(function(){
+	$('.hello4').animate({
+		top:400,
+		left:950
+	},function(){
+		$('.hello4').animate({
+			top:200,
+			left:950
+		},function(){
+  		$('.hello4').animate({
+  			top:400,
+  			left:950
+  		});
+		});
+	});
+});
+$(setTimeout(function(){
+	$('.hello5').animate({
+		top:400,
+		left:1150
+	},function(){
+		$('.hello5').animate({
+			top:200,
+			left:1150
+		},function(){
+  		$('.hello5').animate({
+  			top:400,
+  			left:1150
+  		});
+		});
+	});
+},700));
+$(setInterval(function(){
+	$('.hello0').animate({
+		top:10,
+		left:150
+	},function(){
+		$('.hello0').animate({
+			top:10,
+			left:1000
+		},function(){
+  		$('.hello0').animate({
+  			top:300,
+  			left:1000,
+  			size: 300
+  		}, function(){
+  		  $('.hello0').animate({
+  			top:300,
+  			left:150
+  		  });
+  		});
+		});
+	});
+},4000));
+</script>
+<style type="text/css">
+.hello{position:absolute; top:50px; left:50px}
+.hello2{position:absolute; top:50px; left:350px}
+.hello3{position:absolute; top:50px; left:650px}
+.hello4{position:absolute; top:50px; left:950px}
+.hello5{position:absolute; top:50px; left:1150px}
+.hello0{position:absolute; top:10px; left:150px}
+.center{
+  padding-top: 150px;
+  padding-left: 500px;
+}
+</style>
+</head>
+<body>
+  <div class="center">
+    <span style="float:center;"><img src=<%= image_path "mmiddle.png" %>></span>
+  </div>
+  <div class="hello"><img src=<%= image_path "T_fish2.png" %>></div>
+  <div class="hello2"><img src=<%= image_path "T_fish3.png" %>></div>
+  <div class="hello3"><img src=<%= image_path "T_fish4.png" %>></div>
+  <div class="hello4"><img src=<%= image_path "T_fish5.png" %>></div>
+  <div class="hello5"><img src=<%= image_path "T_fish6.png" %>></div>
+  <div class="hello0"><img src=<%= image_path "money.png" %>></div>
+</body>
+</html>

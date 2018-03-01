@@ -1,0 +1,67 @@
+<br><br>
+
+<div class="container">
+    <div style="padding: 5px 5px 5px 5px;"> <center><img src=<%= image_path "15.png" %>></center> </div>
+    <br>
+    <form>
+      <div class="form-group">
+            <center><p>
+                
+                <p>
+                <h4 style="text-align: center;"><b>축하드립니다!</b></h4><br>
+                <h4 style="text-align: center;">당첨되신 분들은 응모하신 핸드폰번호로 개별 연락 드립니다.</h4>
+                <h4 style="text-align: center;">성적증명서를 내지 않은 분은 당첨이 무효처리 됩니다.</h4><br>
+                
+                
+                <table class="table">
+                      <thead style="text-align: center; font-size: 18px;">
+                        <tr class="danger">
+                          <th width="25%" style="text-align: center; font-size: 15px;">등수</th>
+                          <th width="25%" style="text-align: center; font-size: 15px;">성명</th>
+                          <th width="25%" style="text-align: center; font-size: 15px;">학교</th>
+                          <th width="25%" style="text-align: center; font-size: 15px;">이메일</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                            <% award = 1 %>
+                            
+                            <% @all_users.each do |user| %>
+                            
+                                <% if award < 4 %>
+                                    <% if @id_array[0] == user.id %>
+                                        <td style="font-size: 15px; text-align: center; color: #9C1616;"><b>★<%= award %>등★</b></td>
+                                        <td style="font-size: 15px; text-align: center; color: #9C1616;"><b><%= user.name %></b></td>
+                                        <td style="font-size: 15px; text-align: center;"><%= user.univ %></td>
+                                        <td style="font-size: 15px; text-align: center;"><%= user.email %></td>
+                                        <% @id_array.shift(1) %>
+                                        <% award += 1 %> <tr></tr>
+                                    <% end %>
+                                <% end %>
+                                <% @rest_array = @id_array %>
+                            <% end %>
+
+                         
+
+                            <% @all_users.each do |user| %>   
+                                <% if @rest_array[0] == user.id %>
+                                    <td style="font-size: 15px; text-align: center;"><b><%= 4 %>등</b></td>
+                                    <td style="font-size: 15px; text-align: center;"><b><%= user.name %></b></td>
+                                    <td style="font-size: 15px; text-align: center;"><%= user.univ %></td>
+                                    <td style="font-size: 15px; text-align: center;"><%= user.email %></td>
+                                    <% @rest_array.shift(1) %> <tr></tr>
+                                <% end %>
+                            <% end %>
+
+                        </tr>
+                      </tbody>
+
+            
+            </table>
+        
+
+            </p>
+            </center>
+      </div>
+    </form>
+</div>

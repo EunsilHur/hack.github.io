@@ -1,0 +1,16 @@
+<link rel="stylesheet" href="/assets/home.scss">
+<%= stylesheet_link_tag 'home.scss', media: 'all', 'data-turbolinks-track' => true %>
+<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <header><h2><b>Login</b></h2></header>
+  <div class="form-actions">
+    <center><%= f.input :email, required: false, autofocus: true %></center>
+    <center><%= f.input :password, required: false %></center>
+    <center><%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %></center>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, "Log in" %>
+  </div>
+  <div style="margin-left: 20px"><%= render "devise/shared/links" %></div>
+<% end %>
+

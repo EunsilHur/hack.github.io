@@ -1,0 +1,29 @@
+<br><br>
+
+<div class="container">
+    <div style="padding: 5px 5px 5px 5px;"> <center><img src=<%= image_path "14.png" %>></center> </div>
+    <br>
+      <div class="form-group">
+            <center><h5><b><상금></b></h5></center>
+            <center><b>1등 최대 500만원 (수익의 50%) (1명)</b></center>
+            <center><b>2등 최대 300만원 (수익의 20%) (1명)</b></center>
+            <center><b>3등 최대 100만원 (수익의 10%) (1명)</b></center>
+            <center><b>4등 최대 5만원   (남은 수익의 10%) (?명)</b></center>
+            <br>
+            <center>
+                <p>
+                <p>- 모든 응모자의 동일한 조건 하에서 무작위 추첨을 원칙으로 합니다.</p>
+                <p>- 추첨되면 응모시 제출했던 전화번호로 문자가 갑니다.</p>
+                <p>- 1일 이내에 계좌번호를 보내주지 않으면 자동으로 당첨이 취소되며, 해당 등수는 재추첨이 이루어집니다. <br></p>
+                <p>- 공정한 추첨을 위해 추첨 코드는 공개됩니다. <br></p>
+                </p>
+            </center>
+      </div>
+</div>
+
+<br>
+<center>
+    <% if current_user.email == "admin@email.com" %>
+        <a href="/home/code"><h4 style="color: red;"><b><i class="glyphicon glyphicon-heart" style="color: red;"></i>추첨하러 가기<i class="glyphicon glyphicon-heart" style="color: red;"></i></b></h4></a>
+    <% end %>
+</center>
